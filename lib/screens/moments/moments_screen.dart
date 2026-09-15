@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
@@ -98,7 +99,7 @@ class _MomentCard extends StatelessWidget {
               moment.imagePaths.length == 1
                   ? ClipRRect(
                       borderRadius: BorderRadius.circular(8),
-                      child: Image.file(moment.imagePaths.first, width: double.infinity, fit: BoxFit.cover),
+                      child: Image.file(File(moment.imagePaths.first), width: double.infinity, fit: BoxFit.cover),
                     )
                   : GridView.builder(
                       shrinkWrap: true,
@@ -108,7 +109,7 @@ class _MomentCard extends StatelessWidget {
                       itemCount: moment.imagePaths.length,
                       itemBuilder: (context, index) => ClipRRect(
                         borderRadius: BorderRadius.circular(4),
-                        child: Image.file(moment.imagePaths[index], fit: BoxFit.cover),
+                        child: Image.file(File(moment.imagePaths[index]), fit: BoxFit.cover),
                       ),
                     ),
             ],

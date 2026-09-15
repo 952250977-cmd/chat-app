@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:image_picker/image_picker.dart';
@@ -62,7 +63,7 @@ class _CreateMomentScreenState extends State<CreateMomentScreen> {
                 spacing: 8, runSpacing: 8,
                 children: _imagePaths.map((path) {
                   return Stack(children: [
-                    ClipRRect(borderRadius: BorderRadius.circular(8), child: Image.file(path, width: 100, height: 100, fit: BoxFit.cover)),
+                    ClipRRect(borderRadius: BorderRadius.circular(8), child: Image.file(File(path), width: 100, height: 100, fit: BoxFit.cover)),
                     Positioned(
                       top: 4, right: 4,
                       child: GestureDetector(
